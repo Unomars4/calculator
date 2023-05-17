@@ -1,16 +1,16 @@
-![Logo of the project]🖩
-
-# Calculator
-> Additional information or tagline
-
-
-Here you should say what actually happens when you execute the code above.
+# Calculator 🖩
+> An onscreen basic calculator made with JS,CSS,HTMl
 
 ## Features
 
+* Addition
+* Subtraction
+* Division
+* Multiplication
+* Clear screen 
 
 
 ## Links
 
 - Calculator Page: 
-- Repository: 
+- Repository: https://github.com/Unomars4/calculator 
