@@ -50,6 +50,8 @@ function updateSmall(a, b, op) {
 
 function clearHistory() {
     firstOp = "", secondOp = "", op = "";
+    mainScreen.textContent = "0";
+    smallScreen.textContent = "";
 }
 
 function operate(a, b, op) {
