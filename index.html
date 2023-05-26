@@ -11,40 +11,43 @@
     <header></header>
     <main>
         <div class="calculator">
-            <div class="display"></div>
+            <div class="screen-container">
+                <p class="smallScreen"></p>
+                <p class="mainScreen"></p>
+            </div>
             <div class="buttons">
                 <div class="row">
-                    <button class="btn">clear</button>
-                    <button class="btn">del</button>
+                    <button class="clear" data-clr="clear">clear</button>
+                    <button class="delete" data-del="delete">delete</button>
                 </div>
                 <div class="row">
-                    <button class="btn">7</button>
-                    <button class="btn">8</button>
-                    <button class="btn">9</button>
-                    <button class="btn">/</button>
+                    <button class="digit" data-digits="7">7</button>
+                    <button class="digit" data-digits="8">8</button>
+                    <button class="digit" data-digits="9">9</button>
+                    <button class="operator" data-op="/">/</button>
                 </div>
                 <div class="row">
-                    <button class="btn">4</button>
-                    <button class="btn">5</button>
-                    <button class="btn">6</button>
-                    <button class="btn">x</button>
+                    <button class="digit" data-digits="4">4</button>
+                    <button class="digit" data-digits="5">5</button>
+                    <button class="digit" data-digits="6">6</button>
+                    <button class="operator" data-op="x">x</button>
                 </div>
                 <div class="row">
-                    <button class="btn">1</button>
-                    <button class="btn">2</button>
-                    <button class="btn">3</button>
-                    <button class="btn">-</button>
+                    <button class="digit" data-digits="1">1</button>
+                    <button class="digit" data-digits="2">2</button>
+                    <button class="digit" data-digits="3">3</button>
+                    <button class="operator" data-op="-">-</button>
                 </div>
                 <div class="row">
-                    <button class="btn">0</button>
-                    <button class="btn">.</button>
-                    <button class="btn">+</button>
-                    <button class="btn">=</button>
+                    <button class="digit" data-digits="0">0</button>
+                    <button class="dot" data-dot=".">.</button>
+                    <button class="operator" data-op="+">+</button>
+                    <button class="equal" data-equal="=">=</button>
                 </div>
             </div>
         </div> 
     </main>
     <footer></footer>
-<script src="/scripts/main.js"></script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
