@@ -10,6 +10,17 @@
     --equal-color: #90ad91;
 }
 
+body {
+    height: 90vh;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 .calculator {
     background-color: var(--bg-color);
     border: solid var(--bdr-color) 2px;
@@ -17,9 +28,6 @@
     font-size: 0.8rem;
     width: 25em;
     height: 32em;
-    position: absolute;
-    left: 25%;
-    top: 10%;
 }
 
 .container {
@@ -30,16 +38,17 @@
     border: solid var(--bdr-color) 2px;
     border-radius: 0.3em;
     background-color: var(--screen-color);
-    height: 5em;
-    padding: 0.5em;
+    height: 4.5em;
+    padding: 0 0.5em;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1 1 auto;
 }
 
 .mainScreen, .smallScreen {
     text-align: right;
-    height: 1.5em;
+    height: 2.25em;
+    font-family: "Monospace";
 }
 
 .mainScreen {
@@ -56,8 +65,8 @@
 }
 
 button {
-    width: 3em;
-    height: 3em;
+    width: 3.3em;
+    height: 3.3em;
     font-size: 1rem;
     margin: 0.2em;
     border-radius: 0.3em;
