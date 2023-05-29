@@ -35,8 +35,8 @@ function setOperator(item) {
         let tempOperator = currentOperator;
         secondOperand = mainScreen.textContent;
         mainScreen.textContent = operate(firstOperand,secondOperand,tempOperator);
-        firstOperand = mainScreen.textContent;
         secondOperand = "";
+        firstOperand = mainScreen.textContent;
         currentOperator = item;
     }else {
         firstOperand = mainScreen.textContent; 
@@ -54,8 +54,8 @@ function doCalculation() {
     screenReset();
     updateMain(operate(firstOperand, secondOperand, currentOperator));
     updateSmall();
-    firstOperand = mainScreen.textContent;
     secondOperand = "";
+    currentOperator = "";
 }
 
 function updateSmall() {
