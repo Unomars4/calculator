@@ -1,3 +1,4 @@
+const date = document.querySelector(".date");
 const digits = document.querySelectorAll("[data-digits]");
 const opButton = document.querySelectorAll("[data-op]");
 const clearButton = document.querySelector("[data-clr]");
@@ -8,6 +9,8 @@ const mainScreen = document.querySelector(".mainScreen");
 const smallScreen = document.querySelector(".smallScreen");
 let firstOperand = "", currentOperator = "", secondOperand = "", resetScreen = false;
 mainScreen.textContent = "0";
+year = new Date();
+date.textContent = year.getFullYear();
 
 
 digits.forEach(btn => btn.addEventListener("click", () => updateMain(btn.dataset.digits)));
@@ -16,6 +19,7 @@ eqButton.addEventListener("click", doCalculation);
 clearButton.addEventListener("click", clearHistory);
 delButton.addEventListener("click", deleteDigit);
 dotButton.addEventListener("click", addDot);
+window.addEventListener("keydown", keyboardAction);
 
 function updateMain(n) {
     if (mainScreen.textContent === "0" || resetScreen) {
@@ -31,28 +35,20 @@ function screenReset() {
 }
 
 function setOperator(item) {
-    if (firstOperand && currentOperator) {
-        let tempOperator = currentOperator;
-        secondOperand = mainScreen.textContent;
-        mainScreen.textContent = operate(firstOperand,secondOperand,tempOperator);
-        secondOperand = "";
-        firstOperand = mainScreen.textContent;
-        currentOperator = item;
-    }else {
-        firstOperand = mainScreen.textContent; 
-        currentOperator = item;
-    }
+    if (currentOperator) doCalculation();
+    firstOperand = mainScreen.textContent;
+    currentOperator = item;
     updateSmall();
     screenReset();
 }
 
 function doCalculation() {
-    if (resetScreen) return;
-    if ((!(firstOperand) || !(currentOperator)) || 
-    (firstOperand && !(currentOperator))) return;
+    if (!(currentOperator)) return;
     secondOperand = mainScreen.textContent;
+    if (currentOperator === "/" &&  secondOperand === "0") return alert("You can't divide by 0");
     screenReset();
     updateMain(operate(firstOperand, secondOperand, currentOperator));
+    screenReset();
     updateSmall();
     secondOperand = "";
     currentOperator = "";
@@ -88,6 +84,20 @@ function addDot() {
     updateMain(".");
 }
 
+function keyboardAction(e) {
+    if ( e.key >= "0" && e.key <= "9" ) updateMain(e.key);
+    if (e.key === "+" ||
+        e.key === "-" ||
+        e.key === "/" ||
+        e.key === "*") {
+                setOperator(e.key);
+    }
+    if (e.key == ".") addDot();
+    if (e.key === "=" || e.key === "Enter")doCalculation();
+    if (e.key == "Backspace") deleteDigit();
+    if (e.key == "Escape") clearHistory();
+}
+
 function operate(a, b, op) {
     a = parseFloat(a);
     b = parseFloat(b);
@@ -98,7 +108,7 @@ function operate(a, b, op) {
             return subtract(a, b);
         case "/":
             return divide(a, b);
-        case "x":
+        case "*":
             return muliply(a, b);
         default:
             break;
@@ -117,7 +127,6 @@ function muliply(a, b) {
     return a * b;
 }
 
-function divide(a, b) {
-    if (b == 0) return "You can't divide by 0"; 
+function divide(a, b) { 
     return Math.round((a / b), 1);
 }

@@ -93,3 +93,8 @@ button {
 .operator {
     background-color: var(--op-btn);
 }
+
+footer {
+    text-align: center;
+    font-size: 1.3rem;
+}
