@@ -1,14 +1,6 @@
 # Calculator 🖩
 > An onscreen basic calculator made with JS,CSS,HTMl
 
-## Features
-
-* Addition
-* Subtraction
-* Division
-* Multiplication
-* Clear screen 
-
 
 ## Links
 
