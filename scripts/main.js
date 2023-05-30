@@ -9,8 +9,6 @@ const mainScreen = document.querySelector(".mainScreen");
 const smallScreen = document.querySelector(".smallScreen");
 let firstOperand = "", currentOperator = "", secondOperand = "", resetScreen = false;
 mainScreen.textContent = "0";
-year = new Date();
-date.textContent = year.getFullYear();
 
 
 digits.forEach(btn => btn.addEventListener("click", () => updateMain(btn.dataset.digits)));
